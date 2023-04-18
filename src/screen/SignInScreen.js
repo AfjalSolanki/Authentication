@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import {ToastMessage} from '../utils/Utils';
-import { heightPercentageToDP, responsiveVerticalSize, widthPercentageToDP } from '../theme/ResponsiveSize';
+import { heightPercentageToDP, responsiveFontSize, responsiveVerticalSize, widthPercentageToDP } from '../theme/ResponsiveSize';
 import Fonts from '../theme/Font';
 
 const SignInScreen = ({navigation}) => {
