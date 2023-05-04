@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      {false ? <AuthStackScreen /> : <HomeStackScreen />}
+      {true ? <HomeStackScreen /> : <AuthStackScreen />}
       <Toast config={toastConfig} />
     </NavigationContainer>
   );

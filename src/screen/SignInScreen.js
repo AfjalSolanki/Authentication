@@ -1,30 +1,63 @@
-  import React, {useContext, useState} from 'react';
-import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  Alert,
+} from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import {ToastMessage} from '../utils/Utils';
-import { heightPercentageToDP, responsiveFontSize, responsiveVerticalSize, widthPercentageToDP } from '../theme/ResponsiveSize';
+import {
+  heightPercentageToDP,
+  responsiveFontSize,
+  responsiveVerticalSize,
+  widthPercentageToDP,
+} from '../theme/ResponsiveSize';
 import Fonts from '../theme/Font';
 
 const SignInScreen = ({navigation}) => {
   const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const isValidEmail = email => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+  const [username, setUsername] = useState();
+  // const isValidEmail = email => {
+  //   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  // };
+  // const handleLogin = () => {
+  //   if (!isValidEmail(email)) {
+  //     ToastMessage('Invalid email');
+  //     return;
+  //   }
+
+  //   if (password == '') {
+  //     ToastMessage('Invalid password');
+  //     return;
+  //   }
+
+  //   ToastMessage('Valid email and password');
+  //   // Call backend API to log in the user here
+  // };
+
   const handleLogin = () => {
-    if (!isValidEmail(email)) {
-      ToastMessage('Invalid email');
-      return;
-    }
-
-    if (password =="") {
-      ToastMessage('Invalid password');
-      return;
-    }
-
-    ToastMessage('Valid email and password');
-    // Call backend API to log in the user here
+    fetch('https://reqres.in/api/register', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: username,
+      }),
+    })
+      .then(response => response.json())
+      .then(json => {
+        console.log(json);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   return (
@@ -46,8 +79,8 @@ const SignInScreen = ({navigation}) => {
       />
 
       <FormInput
-        labelValue={password}
-        onChangeText={text => setPassword(text)}
+        labelValue={username}
+        onChangeText={text => setUsername(text)}
         placeholderText="Password"
         iconType="lock"
         secureTextEntry={true}

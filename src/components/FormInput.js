@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Dimensions, TextInput, StyleSheet} from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Fonts from '../theme/Font';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     padding: 10,
     flex: 1,
     fontSize: 16,
-    fontFamily: 'Lato-Regular',
+    fontFamily: Fonts.POPPINS_REGULAR,
     color: '#333',
     justifyContent: 'center',
     alignItems: 'center',

@@ -12,7 +12,6 @@ const SplashScreen = ({navigation}) => {
   const [animating, setAnimating] = useState(true);
   useEffect(() => {
     setAnimating(true);
-
     setTimeout(() => {
       setAnimating(false);
       navigation.replace('SignInScreen');
@@ -23,15 +22,7 @@ const SplashScreen = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#307ecc'}}>
       <View style={styles.container}>
-        <Image
-          source={require('../assets/images/onboarding2.png')}
-          style={{
-            width: '90%',
-            height: '50%',
-            resizeMode: 'contain',
-            margin: 30,
-          }}
-        />
+     
         <ActivityIndicator
           animating={animating}
           color="green"

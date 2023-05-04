@@ -4,6 +4,7 @@ import SplashScreen from '../screen/SplashScreen';
 import WelcomeScreen from '../screen/WelcomeScreen';
 import SignInScreen from '../screen/SignInScreen';
 import SignUpScreen from '../screen/SignUpScreen';
+import OtpScreen from '../screen/OtpScreen';
 const AuthStack = createStackNavigator();
 const AuthStackScreen = ({navigation}) => (
   <AuthStack.Navigator
@@ -12,9 +13,12 @@ const AuthStackScreen = ({navigation}) => (
       headerShown: false,
     }}>
     <AuthStack.Screen name="SplashScreen" component={SplashScreen} />
+
     <AuthStack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+
     <AuthStack.Screen name="SignInScreen" component={SignInScreen} />
     <AuthStack.Screen name="SignUpScreen" component={SignUpScreen} />
+    <AuthStack.Screen name="OtpScreen" component={OtpScreen} />
   </AuthStack.Navigator>
 );
 export default AuthStackScreen;
