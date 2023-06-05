@@ -86,7 +86,12 @@ const SignUpScreen = ({navigation}) => {
         secureTextEntry={true}
       />
 
-      <FormButton buttonTitle="Sign Up" onPress={() => {}} />
+      <FormButton
+        buttonTitle="Sign Up"
+        onPress={() => {
+          validate();
+        }}
+      />
 
       <View style={styles.textPrivate}>
         <Text style={styles.color_textPrivate}>
